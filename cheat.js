@@ -19,165 +19,125 @@ element.dispatchEvent(event);
 // UI
 document.querySelector('body').style.overflow = '';
 function createUI() {
-  const cheatMenuButton = document.createElement('div');
-  var es = cheatMenuButton.style;
-  cheatMenuButton.id = 'cheatMenuButton'
-  es.position = 'fixed';
-  es.top = '0'; es.right = '0';
-  es.color = '#fff';
-  es.fontSize = '30px';
-  cheatMenuButton.textContent = '∞';
-  document.body.appendChild(cheatMenuButton);
-  const cheatMenu = document.createElement('div'); // CHEAT MENU
-  es = cheatMenu.style;
-  cheatMenu.id = 'cheatMenu';
-  es.display = 'none';
-  es.position = 'absolute';
-  es.top = '0'; es.left = '0';
-  es.width = '300px'; es.height = 'max-content';
-  es.background = '#333'; es.color = '#fff';
-  document.body.appendChild(cheatMenu); // CREATE
-  const cheatMenuName = document.createElement('div'); // CHEAT MENU NAME
-  es = cheatMenuName.style;
-  es.color = '#fff'; es.fontSize = '30px'; es.textAlign = 'center';
-  cheatMenuName.textContent = 'Cheat Menu'; // TEXT
-  cheatMenu.appendChild(cheatMenuName); // CREATE
-  const chapterMoney = document.createElement('div'); // MONEY CHAPTER
-  es = chapterMoney.style;
-  es.color = '#fff'; es.fontSize = '25px'
-  chapterMoney.textContent = '│ Money'; // TEXT
-  cheatMenu.appendChild(chapterMoney); // CREATE
-  const getMoneyBtn = document.createElement('button'); // GET MONEY BUTTON
-  es = getMoneyBtn.style;
-  getMoneyBtn.id = 'getMoney';
-  es.display = 'block';
-  es.border = 0; es.padding = '7px 5px'; es.margin = '3px 10px';
-  es.color = '#fff', es.background = "#222";
-  es.fontSize = '20px'; es.cursor = 'pointer';
-  es.transition = '.3s all';
-  getMoneyBtn.textContent = '│> Get'; // TEXT
-  chapterMoney.appendChild(getMoneyBtn); // CREATE
-  const setMoneySubdivision = document.createElement('div'); // SUBD FOR SET MONEY BTN AND INP
-  chapterMoney.appendChild(setMoneySubdivision); // CREATE
-  const setMoneyBtn = document.createElement('button'); // SET MONEY BUTTON
-  es = setMoneyBtn.style;
-  setMoneyBtn.id = 'setMoneyB';
-  es.border = 0; es.padding = '7px 5px'; es.margin = '3px 10px'; es.marginRight = '3px';
-  es.color = '#fff', es.background = "#222";
-  es.fontSize = '20px'; es.cursor = 'pointer';
-  es.transition = '.3s all';
-  setMoneyBtn.textContent = '│> Set'; // TEXT
-  setMoneySubdivision.appendChild(setMoneyBtn); // CREATE
-  const setMoneyI = document.createElement('input'); // SET MONEY INPUT
-  es = setMoneyI.style;
-  setMoneyI.placeholder = 'Number here'; setMoneyI.id = 'setMoneyI';
-  es.width = '150px';
-  es.border = 0; es.padding = '7px 5px';
-  es.color = '#fff', es.background = "#222";
-  es.fontSize = '20px'; es.cursor = 'text';
-  es.transition = '.3s all';
-  setMoneySubdivision.appendChild(setMoneyI) // CREATE
-  const chapterSkills = document.createElement('div'); // SKILLS CHAPTER
-  es = chapterSkills.style; 
-  chapterSkills.id = 'chapterSkills'
-  es.color = '#fff'; es.fontSize = '25px'
-  chapterSkills.textContent = '│ Skills'; // TEXT
-  cheatMenu.appendChild(chapterSkills); // CREATE
-  const setAllSkillsMax = document.createElement('button'); // SET ALL SKILLS MAX
-  es = setAllSkillsMax.style;
-  setAllSkillsMax.id = 'setAllSkillsMax';
-  es.display = 'block';
-  es.border = 0; es.padding = '7px 5px'; es.margin = '3px 10px';
-  es.color = '#fff', es.background = "#222";
-  es.fontSize = '20px'; es.cursor = 'pointer';
-  es.transition = '.3s all';
-  setAllSkillsMax.textContent = '│> Max all'; // TEXT
-  chapterSkills.appendChild(setAllSkillsMax); // CREATE
-  const setSkillSubdivision = document.createElement('div'); // SUBD FOR SET SKILL BTN AND INP
-  setSkillSubdivision.id = 'setSkillSubdivision';
-  chapterSkills.appendChild(setSkillSubdivision); // CREATE
-  const standartSkills = [
-    Bondage      = "Bondage",
-    SelfBondage  = "SelfBondage",
-    LockPicking  = "LockPicking",
-    Evasion      = "Evasion",
-    Willpower    = "Willpower",
-    Infiltration = "Infiltration",
-    Dressage     = "Dressage"
-  ]
-  for (let i = 0; i <= standartSkills.length - 1; i++) {
-    const setSkill = document.createElement('button'); // SET SKILL BUTTON
-    es = setSkill.style;
-    setSkill.id = `setSkillB${standartSkills[i]}`;
-    es.border = 0; es.padding = '7px 5px'; es.margin = '3px 10px'; es.marginRight = '3px';
-    es.color = '#fff', es.background = "#222";
-    es.fontSize = '20px'; es.cursor = 'pointer';
-    es.transition = '.3s all';
-    setSkill.textContent = `│> Set ${standartSkills[i]}`; // TEXT
-    setSkillSubdivision.appendChild(setSkill); // CREATE
-    const setSkillI = document.createElement('input'); // SET SKILL INPUT
-    es = setSkillI.style;
-    setSkillI.placeholder = 'Number here'; setSkillI.id = `setSkillI${standartSkills[i]}`;
-    es.width = '70px';
-    es.border = 0; es.padding = '7px 5px';
-    es.color = '#fff', es.background = "#222";
-    es.fontSize = '20px'; es.cursor = 'text';
-    es.transition = '.3s all';
-    setSkillSubdivision.appendChild(setSkillI) // CREATE
-  }
-  const chapterKidnap = document.createElement('div'); // KIDNAP CHAPTER
-  es = chapterKidnap.style;
-  es.color = '#fff'; es.fontSize = '25px'
-  chapterKidnap.textContent = '│ Kidnap'; // TEXT
-  cheatMenu.appendChild(chapterKidnap); // CREATE
-  const kidnapTimer = document.createElement('button'); // TOGGLE KIDNAP TIMER
-  es = kidnapTimer.style;
-  kidnapTimer.id = 'kidnapTimer';
-  es.display = 'block';
-  es.border = 0; es.padding = '7px 5px'; es.margin = '3px 10px';
-  es.color = '#fff', es.background = "#222";
-  es.fontSize = '20px'; es.cursor = 'pointer';
-  es.transition = '.3s all';
-  kidnapTimer.textContent = '│> Toggle timer'; // TEXT
-  chapterKidnap.appendChild(kidnapTimer); // CREATE
-  const godMode = document.createElement('button'); // TOGGLE GOD MODE
-  es = godMode.style;
-  godMode.id = 'godMode';
-  es.display = 'block';
-  es.border = 0; es.padding = '7px 5px'; es.margin = '3px 10px';
-  es.color = '#fff', es.background = "#222";
-  es.fontSize = '20px'; es.cursor = 'pointer';
-  es.transition = '.3s all';
-  godMode.textContent = '│> Toggle godmod'; // TEXT
-  chapterKidnap.appendChild(godMode); // CREATE
-  const releaseSelf = document.createElement('button'); // RELEASE SELF
-  es = releaseSelf.style;
-  releaseSelf.id = 'releaseSelf';
-  es.display = 'block';
-  es.border = 0; es.padding = '7px 5px'; es.margin = '3px 10px';
-  es.color = '#fff', es.background = "#222";
-  es.fontSize = '20px'; es.cursor = 'pointer';
-  es.transition = '.3s all';
-  releaseSelf.textContent = '│> Release self'; // TEXT
-  chapterKidnap.appendChild(releaseSelf); // CREATE
+  const MOD_item = document.createElement('div');
+  MOD_item.id = "MOD_CeatMenu";
+  document.body.appendChild(MOD_item);
+
+  MOD_item.innerHTML +=
+  `
+    <style>
+      body {
+        overflow: visible;
+      }
+      #cheatMenuOpener {
+        position: fixed; z-index: 999; 
+          right: 0; top: 0;
+        font-size: 30px;
+          background: transparent;
+          color: #fff;
+      }
+      #cheatMenu {
+        display: none;
+        position: absolute; z-index: 998;
+          top: 0; left: 0;
+        width: 300px; height: max-content;
+        background: #333;
+        color: #fff;
+      }
+      #cheatMenuName {
+        font-size: 30px; text-align: center;
+      }
+      #cheatMenu > span { display: block; font-size: 27px; }
+      button.MOD_CM_B {
+        display: inline-block;
+          border: 0; padding: 7px 5px; margin: 3px 0px 3px 10px;
+        font-size: 20px; cursor: pointer;
+          background: #222;
+          color: #fff;
+        transition: .3s all;
+      }
+      input.MOD_CM_I {
+        width: 70px;
+          border: 0; padding: 7px 5px;
+        font-size: 20px; cursor: text;
+          background: #222;
+          color: #fff;
+        transition: .3s all;
+      }
+    </style>
+    <div id="cheatMenuOpener">∞</div>
+    <div id="cheatMenu">
+      <span id="cheatMenuName">CHEAT MENU</span>
+      <span>│ Money</span>
+      <div id="chapterMoney">
+        <div id="moneySubd">
+          <div>
+            <button id="getMoneyB" class="MOD_CM_B">│> Get</button>
+            <input id="getMoneyI" class="MOD_CM_I" type="number" placeholder="num" />
+          </div>
+          <div>
+            <button id="setMoneyB" class="MOD_CM_B">│> Set</button>
+            <input id="setMoneyI" class="MOD_CM_I" type="number" placeholder="num" />
+          </div>
+        </div>
+      </div>
+      <span>│ Skills</span>
+      <div id="chapterSkills">
+        <button id="setAllSkillsMax" class="MOD_CM_B">│> Max all</button>
+        <div id="setSkillSubd">
+          ${cc}
+        </div>
+      </div>
+      <span>│ Kidnap</span>
+      <div id="chapterKidnap">
+        <button id="kidnapTimer" class="MOD_CM_B">│> Toggle timer</button>
+        <button id="godMode" class="MOD_CM_B">│> Toggle godmode</button>
+        <button id="releaseSelf" class="MOD_CM_B">│> Release self</button>
+      </div>
+    </div>
+  `;
+  function DATA_setSkillSubd() {
+    const setSkillSubdivision = document.getElementById('setSkillSubd');
+    setSkillSubdivision.innerHTML = "";
+    const DATA_standartSkills = [
+      Bondage      = "Bondage",
+      SelfBondage  = "SelfBondage",
+      LockPicking  = "LockPicking",
+      Evasion      = "Evasion",
+      Willpower    = "Willpower",
+      Infiltration = "Infiltration",
+      Dressage     = "Dressage"
+    ];
+    for (let i = 0; i <= DATA_standartSkills.length - 1; i++) {
+      const setSkill = document.createElement('button'); es = setSkill.style;
+        setSkill.id = `setSkillB${DATA_standartSkills[i]}`; setSkill.classList.add("MOD_CM_B");
+        setSkill.textContent = `│> Set ${DATA_standartSkills[i]}`;
+        es.marginRight = '3px';
+      setSkillSubdivision.appendChild(setSkill);
+      const setSkillI = document.createElement('input'); es = setSkillI.style;
+        setSkillI.id = `setSkillI${DATA_standartSkills[i]}`; setSkillI.classList.add("MOD_CM_I");
+      setSkillSubdivision.appendChild(setSkillI);
+    }
+  };
+  var cc = DATA_setSkillSubd();
 }
 createUI();
 
 // ITEMS
-const cheatMenuButton = document.getElementById('cheatMenuButton');
+const cheatMenuOpener = document.getElementById('cheatMenuOpener');
 const cheatMenu = document.getElementById('cheatMenu');
-cheatMenuButton.addEventListener('click', () => {
+cheatMenuOpener.addEventListener('click', () => {
   if (cheatMenu.style.display != 'block') {
     cheatMenu.style.display = 'block';
   } else {
     cheatMenu.style.display = 'none';
   }
 });
-const getMoneyBtn = document.getElementById('getMoney');
+const getMoneyBtn = document.getElementById('getMoneyB');
+const getMoneyInp = document.getElementById('getMoneyI');
 const setMoneyBtn = document.getElementById('setMoneyB');
 const setMoneyInp = document.getElementById('setMoneyI');
 const setAllSkillsMaxBtn = document.getElementById('setAllSkillsMax');
-const setSkillSubdivision = document.getElementById('setSkillSubdivision');
 const skillBondageB = document.getElementById("setSkillBBondage");
 const skillBondageI = document.getElementById("setSkillIBondage");
 const skillSelfBondageB = document.getElementById("setSkillBSelfBondage");
@@ -198,7 +158,10 @@ const releaseSelf = document.getElementById("releaseSelf");
 
 // CHEATS
 getMoneyBtn.addEventListener('click', () => {
-  Player.Money += 200;
+  let monCountInInp = getMoneyInp.value;
+  let playerMoneyCurr = Player.Money;
+  let newMoney = parseInt(playerMoneyCurr) + parseInt(monCountInInp);
+  Player.Money = newMoney;
 });
 
 setMoneyBtn.addEventListener('click', () => {
@@ -207,13 +170,13 @@ setMoneyBtn.addEventListener('click', () => {
 });
 
 setAllSkillsMaxBtn.addEventListener('click', () => {
-  SkillChange(Player, 'Bondage', 15, 999, true);
-  SkillChange(Player, 'SelfBondage', 15, 999, true)
-  SkillChange(Player, 'LockPicking', 15, 999, true)
-  SkillChange(Player, 'Evasion', 15, 999, true)
-  SkillChange(Player, 'Willpower', 15, 999, true)
-  SkillChange(Player, 'Infiltration', 15, 999, true)
-  SkillChange(Player, 'Dressage', 15, 999, true)
+  SkillChange(Player, 'Bondage', 10, 999, true);
+  SkillChange(Player, 'SelfBondage', 10, 999, true)
+  SkillChange(Player, 'LockPicking', 10, 999, true)
+  SkillChange(Player, 'Evasion', 10, 999, true)
+  SkillChange(Player, 'Willpower', 10, 999, true)
+  SkillChange(Player, 'Infiltration', 10, 999, true)
+  SkillChange(Player, 'Dressage', 10, 999, true)
 });
 
 skillBondageB.addEventListener('click', () => {
