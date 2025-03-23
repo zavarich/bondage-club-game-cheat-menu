@@ -1,4 +1,21 @@
+/*
+
+> CheatMenu by ZavarichRU.
+> Social
+> . Discord: https://discord.gg/ZmBKFjvhZp
+> . GitHub: https://github.com/zavarich/bondage-club-game-cheat-menu
+
+*/
+
 const log = console.log;
+log(
+  `
+\x1b[33m> CheatMenu by ZavarichRU
+> Social\x1b[0m
+\x1b[36m> . Discord: \x1b[37mhttps://discord.gg/ZmBKFjvhZp\x1b[0m
+\x1b[36m> . GitHub: https://github.com/zavarich/bondage-club-game-cheat-menu
+  `
+)
 
 // AUTO LOGIN
 const setLogin = document.getElementById("InputName");
@@ -32,8 +49,9 @@ function createUI() {
       #cheatMenuOpener {
         position: fixed; z-index: 999; 
           right: 0; top: 0;
+        padding: 0 4px;
         font-size: 30px;
-          background: transparent;
+          background: #00000055;
           color: #fff;
       }
       #cheatMenu {
@@ -63,6 +81,9 @@ function createUI() {
           background: #222;
           color: #fff;
         transition: .3s all;
+        &:invalid:not(:disabled):not(:read-only) {
+          background: #cc222288;
+        }
       }
     </style>
     <div id="cheatMenuOpener">∞</div>
@@ -116,6 +137,7 @@ function createUI() {
       setSkillSubdivision.appendChild(setSkill);
       const setSkillI = document.createElement('input'); es = setSkillI.style;
         setSkillI.id = `setSkillI${DATA_standartSkills[i]}`; setSkillI.classList.add("MOD_CM_I");
+        setSkillI.placeholder = "num"; setSkillI.type = "Number"; setSkillI.max = 10; setSkillI.min = 0;
       setSkillSubdivision.appendChild(setSkillI);
     }
   };
@@ -152,7 +174,7 @@ const skillInfiltrationB = document.getElementById("setSkillBInfiltration");
 const skillInfiltrationI = document.getElementById("setSkillIInfiltration");
 const skillDressageB = document.getElementById("setSkillBDressage");
 const skillDressageI = document.getElementById("setSkillIDressage");
-const kidnapTimer = document.getElementById('kidnapTimer'); 
+const kidnapTimer = document.getElementById('kidnapTimer');
 const godMode = document.getElementById("godMode");
 const releaseSelf = document.getElementById("releaseSelf");
 
